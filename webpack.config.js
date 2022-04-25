@@ -1,8 +1,9 @@
 const path = require('path');
+const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'), // where webpack starts bundling files
-
+  plugins: [new DotenvPlugin()],
   module: {
     rules: [
       {
