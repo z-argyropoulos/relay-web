@@ -1,9 +1,15 @@
 const path = require('path');
 const DotenvPlugin = require('dotenv-webpack');
+const { ProvidePlugin } = require('webpack');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'), // where webpack starts bundling files
-  plugins: [new DotenvPlugin()],
+  plugins: [
+    // load react without having to import it manually in every component/file
+    new ProvidePlugin({ React: 'react' }),
+    // expose env variables
+    new DotenvPlugin(),
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
