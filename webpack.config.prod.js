@@ -9,13 +9,13 @@ const prodConfig = {
   mode: 'production',
   output: {
     // use hash in production to clear cache when a file change was made (cache busting)
-    filename: 'index.[contenthash].js',
+    filename: 'js/index.[contenthash].js',
     path: path.resolve(__dirname, 'dist'), // in which folder webpack will 'spit' the bundled files
     assetModuleFilename: 'assets/[hash][ext][query]', // where to move images in output folder
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css', // extract css into seperate files (from js files)
+      filename: 'css/[name].[contenthash].css', // extract css into seperate files (from js files)
     }),
     new CleanWebpackPlugin(), // clear dist folder when webpack bundles the modules again
     new HtmlWebpackPlugin({
