@@ -3,7 +3,7 @@ const DotenvPlugin = require('dotenv-webpack');
 const { ProvidePlugin } = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.js'), // where webpack starts bundling files
+  entry: path.join(__dirname, 'src', 'index.tsx'), // where webpack starts bundling files
   plugins: [
     // load react without having to import it manually in every component/file
     new ProvidePlugin({ React: 'react' }),
@@ -11,19 +11,29 @@ module.exports = {
     new DotenvPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
       {
         test: /\.(js|jsx)$/, // transpile react jsx and js files with babel to browser understandable javascript
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            // preset env preset for ES2015+ syntax
-            // preset react for react code/syntax
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            // preset env for ES2015+ syntax
+            // preset for react code/syntax
+            // preset for typescript code to js
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
+            ],
           },
         },
       },
