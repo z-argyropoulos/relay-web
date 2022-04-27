@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div className="app-header">
       <p>App component works!</p>
-      <p>{process.env.TEST_ENV_VARIABLE}</p>
+      <p>{process.env.RELAY_TEST_MESSAGE}</p>
     </div>
   );
 };

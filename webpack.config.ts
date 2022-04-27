@@ -8,7 +8,10 @@ const commonConfig: Configuration = {
     // load react without having to import it manually in every component/file
     new ProvidePlugin({ React: 'react' }),
     // expose env variables
-    new DotenvPlugin(),
+    new DotenvPlugin({
+      // load '.env.example' to verify the '.env' variables are all set
+      safe: true,
+    }),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
