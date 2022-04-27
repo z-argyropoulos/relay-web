@@ -1,8 +1,8 @@
-const path = require('path');
-const DotenvPlugin = require('dotenv-webpack');
-const { ProvidePlugin } = require('webpack');
+import path from 'path';
+import DotenvPlugin from 'dotenv-webpack';
+import { ProvidePlugin, Configuration } from 'webpack';
 
-module.exports = {
+const commonConfig: Configuration = {
   entry: path.join(__dirname, 'src', 'index.tsx'), // where webpack starts bundling files
   plugins: [
     // load react without having to import it manually in every component/file
@@ -45,3 +45,5 @@ module.exports = {
     ],
   },
 };
+
+export default commonConfig;

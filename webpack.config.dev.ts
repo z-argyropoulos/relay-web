@@ -1,9 +1,11 @@
-const path = require('path');
-const commonConfig = require('./webpack.config');
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import commonConfig from './webpack.config';
+import { merge } from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { Configuration } from 'webpack';
+import 'webpack-dev-server';
 
-const devConfig = {
+const devConfig: Configuration = {
   mode: 'development',
   output: {
     filename: 'index.js',
@@ -49,4 +51,4 @@ const devConfig = {
   },
 };
 
-module.exports = merge(commonConfig, devConfig);
+export default merge(commonConfig, devConfig);

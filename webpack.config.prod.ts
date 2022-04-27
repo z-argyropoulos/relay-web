@@ -1,11 +1,12 @@
-const path = require('path');
-const commonConfig = require('./webpack.config');
-const { merge } = require('webpack-merge');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import commonConfig from './webpack.config';
+import { merge } from 'webpack-merge';
+import { Configuration } from 'webpack';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const prodConfig = {
+const prodConfig: Configuration = {
   mode: 'production',
   output: {
     // use hash in production to clear cache when a file change was made (cache busting)
@@ -54,4 +55,4 @@ const prodConfig = {
   },
 };
 
-module.exports = merge(commonConfig, prodConfig);
+export default merge(commonConfig, prodConfig);
