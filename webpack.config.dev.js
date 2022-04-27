@@ -24,10 +24,26 @@ const devConfig = {
     rules: [
       // 1. sass loader - convert scss to css
       // 2. css loader - convert css to commonjs
-      // 3. style loader - inject js styles to html
+      // 3. ts css modules loader - auto create TS declarations for css modules
+      // 4. style loader - inject js styles to html
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-modules-typescript-loader',
+          {
+            loader: 'css-loader', //2
+            options: {
+              importLoaders: 1,
+              modules: {
+                // enable css modules only on .module scss files
+                auto: /\.module(s)?\.\w+$/i,
+                localIdentName: '[path][name]__[local]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
