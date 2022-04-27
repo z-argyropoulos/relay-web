@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import ICounterProps from '../../interfaces/ICounter';
 
-import styles from './Counter.module.scss';
+import styles from './AlternativeCounter.module.scss';
 
-const Counter = ({ initialValue = 0 }: ICounterProps) => {
+const AlternativeCounter = ({ initialValue = 0 }: ICounterProps) => {
   const [counter, setCounter] = useState(initialValue);
 
   const handleIncrease = () => {
@@ -20,4 +20,4 @@ const Counter = ({ initialValue = 0 }: ICounterProps) => {
   );
 };
 
-export default Counter;
+export default AlternativeCounter;

@@ -1,0 +1,17 @@
+.counter {
+  &_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+  }
+
+  button {
+    background-color: rgb(255, 176, 176);
+    padding: 0.5rem 1rem;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
