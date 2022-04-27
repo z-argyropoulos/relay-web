@@ -1,0 +1,10 @@
+{
+  "presets": [
+    // preset env for ES2015+ syntax
+    "@babel/preset-env",
+    // preset for react code/syntax
+    "@babel/preset-react",
+    // preset for typescript code to js
+    "@babel/preset-typescript"
+  ]
+}

@@ -21,21 +21,10 @@ const commonConfig: Configuration = {
         use: 'ts-loader',
       },
       {
-        test: /\.(js|jsx)$/, // transpile react jsx and js files with babel to browser understandable javascript
+        // transpile react js(x) files with babel to browser understandable javascript
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            // preset env for ES2015+ syntax
-            // preset for react code/syntax
-            // preset for typescript code to js
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-              '@babel/preset-typescript',
-            ],
-          },
-        },
+        use: 'babel-loader',
       },
       {
         // to require img assets in the html file
