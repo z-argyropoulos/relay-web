@@ -5,8 +5,8 @@ import App from './App';
 import Counter from './components/Counter';
 import AlternativeCounter from './components/AlternativeCounter';
 
-const container = document.getElementById('app');
-const root = createRoot(container);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(document.getElementById('app')!);
 
 root.render(
   <React.StrictMode>

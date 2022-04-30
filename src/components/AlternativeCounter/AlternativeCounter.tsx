@@ -13,7 +13,9 @@ const AlternativeCounter = ({ initialValue = 0 }: ICounterProps) => {
   return (
     <div className={styles.counter}>
       <div className={styles.counter_container}>
-        <button onClick={handleIncrease}>Increase counter</button>
+        <button onClick={handleIncrease} type="button">
+          Increase counter
+        </button>
         <p>Counter: {counter}</p>
       </div>
     </div>
