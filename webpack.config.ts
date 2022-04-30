@@ -21,7 +21,14 @@ const commonConfig: Configuration = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              noEmit: false,
+            },
+          },
+        },
       },
       {
         // transpile react js(x) files with babel to browser understandable javascript
